@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash, jsonify
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from pymongo import MongoClient
+from pymongo import errors
 from werkzeug.security import generate_password_hash
 import pytz
 
@@ -19,7 +20,14 @@ app = Flask(__name__, static_folder='static', template_folder='templates')
 app.secret_key = os.getenv('SECRET_KEY', 'default_secret_key')
 
 MONGO_URI = os.getenv('MONGO_URI', 'mongodb://localhost:27017/')
-mongo_client = MongoClient(MONGO_URI)
+try:
+    mongo_client = MongoClient(MONGO_URI)
+except errors.ConfigurationError:
+    print("MongoDB configuration error. Please check your MONGO_URI.")
+    exit(1)
+except Exception as e:
+    print(f"Error connecting to MongoDB: {e}")
+    exit(1)
 db = mongo_client['alexcars']
 users_collection = db['users']
 cars_collection = db['cars']
