@@ -1397,6 +1397,10 @@ def generate_booking_invoice(booking_id):
 def tos():
     return render_template('tos.html')
 
+@app.route('/terms', methods=['GET'])
+def terms():
+    return render_template('terms.html')
+
 @app.route('/privacypolicy',methods=['GET'])
 def privacypolicy():
     return render_template('privacy.html')
