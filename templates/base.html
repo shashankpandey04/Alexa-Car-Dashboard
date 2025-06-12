@@ -25,7 +25,7 @@
     
 	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	    <div class="container">
-	      <a class="navbar-brand" href="index.html">Alexa<span>Cars</span></a>
+	      <a class="navbar-brand" href="/">Alexa<span>Cars</span></a>
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <!-- Bars | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
           <span class="fa-solid fa-bars"></span>
@@ -33,7 +33,7 @@
 
 	      <div class="collapse navbar-collapse" id="ftco-nav">
 	        <ul class="navbar-nav ml-auto">
-	          <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
 	          <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
 	          <li class="nav-item"><a href="/cars" class="nav-link">Cars</a></li>
             {% if current_user.is_authenticated %}
@@ -92,8 +92,8 @@
               <div class="ftco-footer-widget mb-4 ml-md-5">
                 <h2 class="ftco-heading-2">Information</h2>
                 <ul class="list-unstyled">
-                  <li><a href="about.html" class="py-2 d-block">About</a></li>
-                  <li><a href="car.html" class="py-2 d-block">Choose Car</a></li>
+                  <li><a href="/about" class="py-2 d-block">About</a></li>
+                  <li><a href="/cars" class="py-2 d-block">Choose Car</a></li>
                     <li><a href="/terms" class="py-2 d-block">Terms and Conditions</a></li>
                   <li><a href="/privacypolicy" class="py-2 d-block">Privacy Policy</a></li>
                 </ul>
@@ -104,7 +104,7 @@
                 <h2 class="ftco-heading-2">Customer Support</h2>
                 <ul class="list-unstyled">
                   <li class="py-2 d-block">Payment Option - Cash & UPI</li>
-                  <li><a href="contact.html" class="py-2 d-block">Contact Us</a></li>
+                  <li><a href="/contact" class="py-2 d-block">Contact Us</a></li>
                 </ul>
               </div>
             </div>

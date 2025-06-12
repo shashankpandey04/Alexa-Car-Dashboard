@@ -1393,10 +1393,6 @@ def generate_booking_invoice(booking_id):
         flash(f'An error occurred: {str(e)}', 'danger')
         return redirect(url_for('admin_bookings'))
 
-@app.route('/tos',methods=['GET'])
-def tos():
-    return render_template('tos.html')
-
 @app.route('/terms', methods=['GET'])
 def terms():
     return render_template('terms.html')
