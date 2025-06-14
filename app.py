@@ -1468,48 +1468,47 @@ def background_task():
         # Sleep for 12 hours
         time.sleep(43200)
 
-@app.route('/api/v1/manage/site', methods=['POST'])
-def manage_site():
-    """
-    Endpoint to manage the site status.
-    It will change the WEBSITE_STATUS global variable to the value provided in the request.
-    """
-    if request.method == 'POST':
-        data = request.get_json()
-        if not data or 'auth_key' not in data or 'status' not in data:
-            return jsonify({"error": "Invalid request"}), 400
-        auth_key = data['auth_key']
-        AUTH_KEY = os.getenv('AUTH_KEY', "FounDevStudiio@AlexaCars")
-        if auth_key != AUTH_KEY:
-            return jsonify({"error": "Unauthorized"}), 401
+# @app.route('/api/v1/manage/site', methods=['POST'])
+# def manage_site():
+#     """
+#     Endpoint to manage the site status.
+#     It will change the WEBSITE_STATUS global variable to the value provided in the request.
+#     """
+#     if request.method == 'POST':
+#         data = request.get_json()
+#         if not data or 'auth_key' not in data or 'status' not in data:
+#             return jsonify({"error": "Invalid request"}), 400
+#         auth_key = data['auth_key']
+#         AUTH_KEY = os.getenv('AUTH_KEY', "FounDevStudiio@AlexaCars")
+#         if auth_key != AUTH_KEY:
+#             return jsonify({"error": "Unauthorized"}), 401
         
-        status = data['status']
-        if status not in ['ONLINE', 'OFFLINE', 'MAINTENANCE']:
-            return jsonify({"error": "Invalid status value"}), 400
+#         status = data['status']
+#         if status not in ['ONLINE', 'OFFLINE', 'MAINTENANCE']:
+#             return jsonify({"error": "Invalid status value"}), 400
         
-        if status == "MAINTENANCE":
-            global DEPLOYMENT_LINK
-            if DEPLOYMENT_LINK:
-                try:
-                    response = requests.get(DEPLOYMENT_LINK)
-                    if response.status_code == 200:
-                        return jsonify({"message": "Website has been deployed successfully"}), 200
-                    else:
-                        return jsonify({"error": "Deployment link is not reachable"}), 500
-                except requests.RequestException as e:
-                    return jsonify({"error": f"Error reaching deployment link: {str(e)}"}), 500
+#         if status == "MAINTENANCE":
+#             global DEPLOYMENT_LINK
+#             if DEPLOYMENT_LINK:
+#                 try:
+#                     response = requests.get(DEPLOYMENT_LINK)
+#                     if response.status_code == 200:
+#                         return jsonify({"message": "Website has been deployed successfully"}), 200
+#                     else:
+#                         return jsonify({"error": "Deployment link is not reachable"}), 500
+#                 except requests.RequestException as e:
+#                     return jsonify({"error": f"Error reaching deployment link: {str(e)}"}), 500
 
-        global WEBSITE_STATUS
-        WEBSITE_STATUS = status
-        return jsonify({"message": f"Website status updated to {status}"}), 200
+#         global WEBSITE_STATUS
+#         WEBSITE_STATUS = status
+#         return jsonify({"message": f"Website status updated to {status}"}), 200
     
-    return jsonify({"error": "Method not allowed"}), 405
+#     return jsonify({"error": "Method not allowed"}), 405
 
 def deploy():
     bg_thread = threading.Thread(target=background_task)
     bg_thread.daemon = True
     bg_thread.start()
-
     app.run(debug=True, host='0.0.0.0', port=80)
 
 if __name__ == "__main__":

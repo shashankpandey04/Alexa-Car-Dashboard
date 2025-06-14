@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/car-showcase.css') }}">
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url(https://cdn.pixabay.com/video/2023/04/15/159014-818026276_tiny.jpg);" 
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/palace_new.jpg);" 
     data-stellar-background-ratio="0.5">
       <div class="overlay"></div>
       <div class="container">
@@ -24,13 +24,13 @@
       </div>
     </div>
 
-     <section class="ftco-section ftco-no-pt bg-light">
+     <!-- <section class="ftco-section ftco-no-pt bg-light">
     	<div class="container">
     		<div class="row no-gutters">
     			<div class="col-md-12	featured-top">
     				<div class="row no-gutters">
 	  					<div class="col-md-4 d-flex align-items-center">
-	  						<form action="car.html" class="request-form ftco-animate bg-primary">
+	  						<form action="/cars" class="request-form ftco-animate bg-primary">
 		          		<h2>Make your trip</h2>
 			    				<div class="form-group">
 			    					<label for="" class="label">Pick-up location</label>
@@ -70,7 +70,6 @@
 					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
 					            <div class="services w-100 text-center">
 				              	<div class="icon d-flex align-items-center justify-content-center">
-                          <!-- Location | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
                           <span class="fa-solid fa-location-dot"></span>
                         </div>
 				              	<div class="text w-100">
@@ -81,7 +80,6 @@
 					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
 					            <div class="services w-100 text-center">
 				              	<div class="icon d-flex align-items-center justify-content-center">
-                          <!--Deal | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
                           <span class="fa-solid fa-handshake"></span>
                         </div>
 				              	<div class="text w-100">
@@ -92,7 +90,6 @@
 					          <div class="col-md-4 d-flex align-self-stretch ftco-animate">
 					            <div class="services w-100 text-center">
 				              	<div class="icon d-flex align-items-center justify-content-center">
-                          <!-- Car | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
                           <span class="fa-solid fa-car"></span>
                         </div>
 				              	<div class="text w-100">
@@ -107,7 +104,7 @@
 	  				</div>
 				</div>
   		</div>
-    </section>
+    </section> -->
 
 
     <section class="ftco-section ftco-no-pt bg-light">
@@ -172,7 +169,7 @@
     <section class="ftco-section ftco-about">
 			<div class="container">
 				<div class="row no-gutters">
-          <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/201810081253441379-5e116b145ab811edac9c0a58a9feac02.jpg);">
+          <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(/static//images/palace_new.jpg);">
 					</div>
 					<div class="col-md-6 wrap-about ftco-animate">
 	          <div class="heading-section heading-section-white pl-md-5">
@@ -181,7 +178,7 @@
 
 	            <p>Alexa Cars offers reliable, flexible, and budget-friendly car rentals in Jaipur. With over 15 years of experience, Alexa Cars has established itself as a trusted name in the car rental industry, dedicated to serving the diverse needs of its customers. Our mission is to ensure that every client enjoys a seamless and memorable experience in Jaipur through services that combine quality, convenience, and value.</p>
 	            <p>With Alexa Cars' self-drive rentals, you can embrace the freedom of traveling at your own pace while enjoying complete privacy and independence. Whether it's a business trip or a leisure getaway, rent a self-drive car and discover Jaipur in style and comfort. Choose from our extensive fleet of affordable vehicles, including luxury cars, SUVs, MUVs, sedans, and compact hatchbacks, to find the perfect ride for your journey. Alexa Cars—your partner for effortless and enjoyable travel.</p>
-	            <p><a href="car.html" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
+	            <p><a href="/cars" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
 	          </div>
 					</div>
 				</div>
