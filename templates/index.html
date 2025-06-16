@@ -10,6 +10,15 @@
           	<div class="text w-100 text-center mb-md-5 pb-md-5">
 	            <h1 class="mb-4">Alexa Cars: Drive in Style, Own the Journey.</h1>
 	            <p style="font-size: 18px;">Enjoy the best of Jaipur with our unbeatable prices and 24/7 support. Alexa Cars takes the hassle out of car rentals, so you can focus on the journey.</p>
+              <!--Big CALL BUTTON-->
+              <div class="btn btn-primary btn-lg">
+                <i class="fa-solid fa-phone fa-2x"></i>
+                <a href="https://wa.me/7339999956?text=I%20want%20to%20book%20a%20car" 
+                target="_blank"
+                rel="noopener noreferrer" class="text-white" style="text-decoration: none; font-size: 18px; padding: 10px 20px;">
+                <span class="ml-2">Call or WhatsApp</span>
+              </a>
+              </div>
 	            <!-- <a href="https://vimeo.com/45830194" class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center">
 	            	<div class="icon d-flex align-items-center justify-content-center">
 	            		<span class="ion-ios-play"></span>
@@ -107,64 +116,169 @@
     </section> -->
 
 
-    <section class="ftco-section ftco-no-pt bg-light">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-md-12 heading-section text-center ftco-animate mb-5">
-            <span class="subheading">What we offer</span>
-            <h2 class="mb-2">Experience the Future of Car Rental</h2>
-          </div>
-        </div>
-        
-        <!-- 2025 Redesigned Car Showcase -->
-        <div class="car-showcase">
-          <!-- Car Gallery - Horizontal Scroll -->
-          <div class="car-gallery">
-            {% if cars|length > 0 %}
-              {% for car in cars %}
-              <div class="car-card" data-category="{{ car.category }}">
-                <div class="car-card-inner">
-                  <div class="car-image">
-                    <img src="{{ car.image if car.image else '/static/images/default_car.jpg' }}" alt="{{ car.name }}">
-                    {% if car.booked %}
-                    <div class="car-tag">Reserved</div>
-                    {% endif %}
-                  </div>
-                  <div class="car-details">
-                    <h3 class="car-name">{{ car.name }}</h3>
-                    <div class="car-meta">
-                      <span class="car-category"><i class="fa fa-tag"></i> {{ car.category }}</span>
-                      <span class="car-year"><i class="fa fa-calendar"></i> {{ car.year }}</span>
-                      <span class="car-fuel"><i class="fa fa-gas-pump"></i> {{ car.fuel_type }}</span>
+    <section class="ftco-section bg-light">
+    	<div class="container">
+    		<!-- Car filters -->
+    		<div class="car-filters text-center mb-5">
+    			<button class="filter-btn active" data-category="all">All Cars</button>
+    			<button class="filter-btn" data-category="Sedan">Sedan</button>
+    			<button class="filter-btn" data-category="SUV">SUV</button>
+    			<button class="filter-btn" data-category="Hatchback">Hatchback</button>
+                <button class="filter-btn" data-category="Luxury">Luxury</button>
+    		</div>
+    		
+    		<div class="row">
+    		    {% if cars|length > 0 %}
+    		        {% for car in cars %}
+                    <div class="col-md-4 car-item" data-category="{{ car.category }}">
+    				    <div class="car-wrap rounded ftco-animate">
+    					    <div class="img rounded d-flex align-items-end" style="background-image: url('{{ car.image }}');">
+    					        {% if car.booked %}
+    					        <div class="price-ribbon">Reserved</div>
+    					        {% endif %}
+    					    </div>
+    					    <div class="text">
+    						    <h2 class="mb-0"><a href="#">{{ car.name }}</a></h2>
+    						    <div class="d-flex mb-3">
+	    						    <span class="cat">{{ car.category }}</span>
+	    						    <p class="price ml-auto">₹{{ car.price_per_day }} <span>/day</span></p>
+    						    </div>
+                                <div class="d-flex car-specs mb-3">
+                                    <span class="spec"><i class="fa-solid fa-calendar-alt"></i> {{ car.year }}</span>
+                                    <span class="spec"><i class="fa-solid fa-gas-pump"></i> {{ car.fuel_type }}</span>
+                                    {% if car.status != 'Booked' %}
+                                    <span class="spec available"><i class="fa-solid fa-check"></i> Available</span>
+                                    {% else %}
+                                    <span class="spec booked"><i class="fa-solid fa-times"></i> Booked</span>
+                                    {% endif %}
+                                </div>
+                                <p class="d-flex mb-0 d-block">
+                                    {% if car.status != 'Booked' %}
+                                    <a href="https://wa.me/7339999956?text=I%20want%20to%20book%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20model%20for%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="btn btn-primary py-2 mr-1">Book now</a>
+                                    {% else %}
+                                    <a href="https://wa.me/7339999956?text=I%20want%20to%20check%20availability%20for%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20priced%20at%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    class="btn btn-primary py-2 mr-1">Check Availability</a>
+                                    {% endif %}
+                                    <a href="tel:7339999956" class="btn btn-secondary py-2 ml-1">Call</a>
+                                </p>
+    					    </div>
+    				    </div>
+    			    </div>
+    			    {% endfor %}
+    		    {% else %}
+    			<div class="col-12 text-center py-5">
+    				<div class="no-cars">
+                      <div class="icon"><i class="fa-solid fa-car"></i></div>
+                      <h3>Our fleet is being updated</h3>
+                      <p>We're adding new vehicles to our inventory. Please check back soon or contact us for more information.</p>
                     </div>
-                    <div class="car-price">
-                      <span class="amount">₹{{ car.price_per_day }}</span>
-                      <span class="period">/day</span>
-                    </div>
-                    <div class="car-actions">
-                      <a href="https://wa.me/message/IEH42U5P2TSIM1" class="btn-book">Book Now</a>
-                      <a href="tel:9660597172" class="btn-call"><i class="fa fa-phone"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-			  {% endfor %}
-            {% else %}
-              <div class="no-cars">
-                <div class="icon"><i class="fa fa-car"></i></div>
-                <h3>Our fleet is being updated</h3>
-                <p>We're adding new vehicles to our inventory. Please check back soon or contact us for more information.</p>
-              </div>
-            {% endif %}
-          </div>
-          
-          <!-- View All Cars Button -->
-          <div class="btn-primary" style="text-align: center; margin-top: 20px; border-radius: 10px;">
-            <a href="/cars" style="color: black;">Explore All Vehicles</a>
-          </div>
-        </div>
-      </div>
+    			</div>
+    		    {% endif %}
+    		</div>
+    	</div>
     </section>
+        <style>
+        .price-ribbon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #f72585;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .car-specs {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .spec {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+        }
+        
+        .spec.available {
+            color: #01d28e;
+        }
+        
+        .spec.booked {
+            color: #f72585;
+        }
+        
+        .filter-btn {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            color: #666;
+            padding: 8px 16px;
+            margin: 0 5px 10px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: #01d28e;
+            color: white;
+            border-color: #01d28e;
+        }
+        
+        .car-item {
+            transition: all 0.4s ease;
+        }
+        
+        .car-item.hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+                margin: 0 3px 8px;
+            }
+        }
+    </style>
+
+    <script>
+        // Car filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const carItems = document.querySelectorAll('.car-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    carItems.forEach(car => {
+                        if (category === 'all' || car.getAttribute('data-category') === category) {
+                            car.classList.remove('hidden');
+                        } else {
+                            car.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 
     <section class="ftco-section ftco-about">
 			<div class="container">
