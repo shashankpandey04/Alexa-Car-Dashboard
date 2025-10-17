@@ -1,159 +1,85 @@
 {% extends "base.html" %}
 {% block content %}
-    
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/images/palace/image2.png');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
+  
+  <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/images/palace/image2.png'); background-size: cover; background-position: center; background-attachment: fixed;" data-stellar-background-ratio="0.5">
+    <div class="overlay" style="background: rgba(0, 0, 0, 0.5);"></div>
+    <div class="container">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+      <div class="col-md-9 ftco-animate pb-5">
+      <p class="breadcrumbs"><span class="mr-2"><a href="/" style="color: #fff;">Home <i class="ion-ios-arrow-forward"></i></a></span> <span style="color: #fff;">About us <i class="ion-ios-arrow-forward"></i></span></p>
+      <h1 class="mb-3 bread" style="color: #fff; font-size: 3rem; font-weight: bold;">About Us</h1>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="ftco-section ftco-about" style="background-image: url('/static/images/palace/image1.png'); background-size: cover; background-position: center; padding: 4rem 0;">
       <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-          	<p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">About Us</h1>
-          </div>
+        <div class="row no-gutters">
+      <div class="col-md-6 wrap-about ftco-animate" style="background: rgba(255, 255, 255, 0.9); padding: 2rem; border-radius: 10px;">
+      <div class="heading-section pl-md-5">
+        <span class="subheading" style="color: #ff6f61; font-weight: bold;">About Us</span>
+        <h2 class="mb-4" style="font-size: 2.5rem; font-weight: bold;">Discover Jaipur with Alexa Cars</h2>
+        <p style="line-height: 1.8;">At Alexa Cars, we are passionate about making your journey in Jaipur smooth, comfortable, and memorable. With years of expertise in the car rental industry, we offer a wide selection of well-maintained vehicles to suit every traveler’s needs—whether you’re exploring the city for business or leisure.</p>
+        <p style="line-height: 1.8;">Our self-drive rentals give you the freedom to travel on your own terms, with flexible options and transparent pricing. From compact hatchbacks to spacious SUVs and luxury sedans, our fleet is designed to provide safety, reliability, and convenience for every trip.</p>
+        <p style="line-height: 1.8;">Experience Jaipur at your own pace with Alexa Cars—where customer satisfaction, quality service, and affordable rates come standard. Start your adventure today!</p>
+        <p><strong>Business Owner:</strong> Anil Kumar</p>
+        <p><a href="/cars" class="btn btn-primary py-3 px-4" style="background: #ff6f61; border: none;">Find Your Car</a></p>
+      </div>
+      </div>
         </div>
       </div>
     </section>
 
-    <section class="ftco-section ftco-about" style="background-image: url('/static/images/palace/image1.png'); background-size: cover; background-position: center;">
-			<div class="container">
-				<div class="row no-gutters">
-          <div class="col-md-6 wrap-about ftco-animate">
-            <div class="heading-section heading-section-white pl-md-5">
-              <span class="subheading">About Us</span>
-                <h2 class="mb-4">Discover Jaipur with Alexa Cars</h2>
-                <p>At Alexa Cars, we are passionate about making your journey in Jaipur smooth, comfortable, and memorable. With years of expertise in the car rental industry, we offer a wide selection of well-maintained vehicles to suit every traveler’s needs—whether you’re exploring the city for business or leisure.</p>
-                <p>Our self-drive rentals give you the freedom to travel on your own terms, with flexible options and transparent pricing. From compact hatchbacks to spacious SUVs and luxury sedans, our fleet is designed to provide safety, reliability, and convenience for every trip.</p>
-                <p>Experience Jaipur at your own pace with Alexa Cars—where customer satisfaction, quality service, and affordable rates come standard. Start your adventure today!</p>
-                <p><strong>Business Owner:</strong> Anil Kumar</p>
-                <p><a href="/cars" class="btn btn-primary py-3 px-4">Find Your Car</a></p>
-            </div>
-          </div>
-				</div>
-			</div>
-		</section>
-
-		<section class="ftco-section ftco-intro" style="background-image: url(/static/images/palace/image3.png);">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row justify-content-end">
-					<div class="col-md-6 heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Grab your cars for exploring Jaipur with Alexa Cars</h2>
-            <a href="/cars" class="btn btn-primary btn-lg">Book A car</a>
-          </div>
-				</div>
-			</div>
-		</section>
-
-
-    <!-- <section class="ftco-section testimony-section bg-light">
+    <section class="ftco-section ftco-intro" style="background-image: url(/static/images/palace/image3.png); background-size: cover; background-position: center; padding: 4rem 0;">
+      <div class="overlay" style="background: rgba(0, 0, 0, 0.6);"></div>
       <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-7 text-center heading-section ftco-animate">
-          	<span class="subheading">Testimonial</span>
-            <h2 class="mb-3">Happy Clients</h2>
-          </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_2.jpg)">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_3.jpg)">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap rounded text-center py-4 pb-5">
-                  <div class="user-img mb-2" style="background-image: url(images/person_1.jpg)">
-                  </div>
-                  <div class="text pt-4">
-                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Roger Scott</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="row justify-content-end">
+          <div class="col-md-6 heading-section heading-section-white ftco-animate">
+      <h2 class="mb-3" style="color: #fff; font-size: 2.5rem; font-weight: bold;">Grab your cars for exploring Jaipur with Alexa Cars</h2>
+      <a href="/cars" class="btn btn-primary btn-lg" style="background: #ff6f61; border: none;">Book A car</a>
+      </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
-    <section class="ftco-counter ftco-section img" id="section-counter">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="5">0</strong>
-                <span>Year <br>Experienced</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="50">0</strong>
-                <span>Total <br>Cars</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="500">0</strong>
-                <span>Happy <br>Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text d-flex align-items-center">
-                <strong class="number" data-number="1">0</strong>
-                <span>Total <br>Branches</span>
-              </div>
-            </div>
-          </div>
+  <section class="ftco-counter ftco-section img" id="section-counter" style="background: #f8f9fa; padding: 4rem 0;">
+      <div class="container">
+      <div class="row">
+      <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+      <div class="block-18 text-center">
+        <div class="text text-border d-flex align-items-center justify-content-center">
+        <strong class="number" data-number="5" style="font-size: 3rem; color: #ff6f61;">0</strong>
+        <span style="margin-left: 10px;">Year <br>Experienced</span>
         </div>
-    	</div>
-    </section>	
+      </div>
+      </div>
+      <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+      <div class="block-18 text-center">
+        <div class="text text-border d-flex align-items-center justify-content-center">
+        <strong class="number" data-number="50" style="font-size: 3rem; color: #ff6f61;">0</strong>
+        <span style="margin-left: 10px;">Total <br>Cars</span>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+      <div class="block-18 text-center">
+        <div class="text text-border d-flex align-items-center justify-content-center">
+        <strong class="number" data-number="500" style="font-size: 3rem; color: #ff6f61;">0</strong>
+        <span style="margin-left: 10px;">Happy <br>Customers</span>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+      <div class="block-18 text-center">
+        <div class="text d-flex align-items-center justify-content-center">
+        <strong class="number" data-number="1" style="font-size: 3rem; color: #ff6f61;">0</strong>
+        <span style="margin-left: 10px;">Total <br>Branches</span>
+        </div>
+      </div>
+      </div>
+    </div>
+    </div>
+  </section>	
 
 {% endblock %}

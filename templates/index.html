@@ -1,19 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/car-showcase.css') }}">
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/palace.png);" 
+  <section class="home-slider owl-carousel">
+    <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/palace.png); background-size: cover; background-position: center;" 
     data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
+      <div class="overlay" style="background: rgba(0, 0, 0, 0.6);"></div>
       <div class="container">
         <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
           <div class="col-lg-8 ftco-animate">
-          	<div class="text w-100 text-center mb-md-5 pb-md-5">
-	            <h1 class="mb-4">Alexa Cars: Drive in Style, Own the Journey.</h1>
-	            <p style="font-size: 18px;">Enjoy the best of Jaipur with our unbeatable prices and 24/7 support. Alexa Cars takes the hassle out of car rentals, so you can focus on the journey.</p>
+            <div class="text w-100 text-center mb-md-5 pb-md-5">
+              <h1 class="mb-4" style="color: #ffffff; font-weight: 700; font-size: 3rem;">Alexa Cars: Drive in Style, Own the Journey.</h1>
+              <p style="font-size: 18px; color: #d1d1d1;">Enjoy the best of Jaipur with our unbeatable prices and 24/7 support. Alexa Cars takes the hassle out of car rentals, so you can focus on the journey.</p>
               <!--Big CALL BUTTON-->
               <a href="tel:9785388438" 
                 class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" 
-                style="text-decoration: none; font-size: 18px; padding: 15px 30px; max-width: 300px; margin: 0 auto;">
+                style="text-decoration: none; font-size: 18px; padding: 15px 30px; max-width: 300px; margin: 0 auto; background: #01d28e; border: none; border-radius: 50px; color: #ffffff;">
                 <i class="fa-solid fa-phone mr-3"></i>
                 <span style="font-weight: 900; font-size: 22px;">+91 9785388438</span>
               </a>
@@ -22,6 +23,7 @@
         </div>
       </div>
     </div>
+  </section>
 
     <section class="ftco-section bg-light">
     	<div class="container">
@@ -89,7 +91,7 @@
     		</div>
     	</div>
     </section>
-        <style>
+    <style>
         .price-ribbon {
             position: absolute;
             top: 10px;
@@ -187,85 +189,86 @@
         });
     </script>
 
-    <section class="ftco-section ftco-about">
-			<div class="container">
-				<div class="row no-gutters">
-          <div class="col-md-6 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://www.travelpack.in/public/imagedb/sysimgdocs/rszimages/Raj_pk30944_1.gif);">
-					</div>
-					<div class="col-md-6 wrap-about ftco-animate">
-	          <div class="heading-section heading-section-white pl-md-5">
-	          	<span class="subheading">About us</span>
-	            <h2 class="mb-4">Welcome to AlexaCars</h2>
+    <section class="ftco-section ftco-about" style="background-color: #f4f4f4; padding: 60px 0;">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <div class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://www.travelpack.in/public/imagedb/sysimgdocs/rszimages/Raj_pk30944_1.gif); background-size: cover; background-position: center; height: 400px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="wrap-about ftco-animate" style="padding: 30px; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="heading-section">
+                <span class="subheading" style="color: #01d28e; font-weight: bold;">About Us</span>
+                <h2 class="mb-4" style="color: #333; font-weight: 700;">Discover Alexa Cars</h2>
+                <p style="color: #666;">At Alexa Cars, we redefine car rentals with a focus on reliability, affordability, and customer satisfaction. With over 15 years of expertise, we are your trusted partner for exploring Jaipur in style and comfort.</p>
+                <p style="color: #666;">Choose from our diverse fleet of vehicles, including luxury cars, SUVs, and compact hatchbacks, tailored to meet your travel needs. Whether it's a business trip or a family vacation, Alexa Cars ensures a seamless and enjoyable journey.</p>
+                <p style="color: #666;">Experience the freedom of self-drive rentals and make every journey memorable. Alexa Cars—where your adventure begins.</p>
+                <p><a href="/cars" class="btn btn-primary py-3 px-4" style="background: #01d28e; border: none; font-weight: bold;">Explore Our Fleet</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-	            <p>Alexa Cars offers reliable, flexible, and budget-friendly car rentals in Jaipur. With over 15 years of experience, Alexa Cars has established itself as a trusted name in the car rental industry, dedicated to serving the diverse needs of its customers. Our mission is to ensure that every client enjoys a seamless and memorable experience in Jaipur through services that combine quality, convenience, and value.</p>
-	            <p>With Alexa Cars' self-drive rentals, you can embrace the freedom of traveling at your own pace while enjoying complete privacy and independence. Whether it's a business trip or a leisure getaway, rent a self-drive car and discover Jaipur in style and comfort. Choose from our extensive fleet of affordable vehicles, including luxury cars, SUVs, MUVs, sedans, and compact hatchbacks, to find the perfect ride for your journey. Alexa Cars—your partner for effortless and enjoyable travel.</p>
-	            <p><a href="/cars" class="btn btn-primary py-3 px-4">Search Vehicle</a></p>
-	          </div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<section class="ftco-section">
-			<div class="container">
-				<div class="row justify-content-center mb-5">
-					<div class="col-md-7 text-center heading-section ftco-animate">
-						<span class="subheading">Services</span>
-						<h2 class="mb-3">Our Latest Services</h2>
-					</div>
-					</div>
-				<div class="row">
-					<div class="col-md-3">
-						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center">
-                <!-- Wedding | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
-                <span class="fa-solid fa-ring"></span>
+    <section class="ftco-section services-section" style="background-color: #f9f9f9; padding: 60px 0;"></section>
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-8 text-center heading-section ftco-animate">
+            <span class="subheading" style="color: #01d28e; font-weight: bold;">Our Services</span>
+            <h2 class="mb-3" style="color: #333; font-weight: 700;">What We Offer</h2>
+            <p style="color: #666;">Discover a range of premium services tailored to make your journey seamless and memorable.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
+                <span class="fa-solid fa-heart"></span>
               </div>
-            	<div class="text w-100">
-                <h3 class="heading mb-2">Wedding Ceremony</h3>
-                <p>Make your special day even more memorable with Alexa Cars. From elegant luxury cars for the bride and groom to comfortable rides for your guests, we ensure seamless transportation for your wedding celebrations. Just like a flowing river adds life to its surroundings, our services add grace and ease to your big day. Celebrate love in style with Alexa Cars.</p>
+              <div class="text w-100 mt-4">
+                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">Luxury Weddings</h3>
+                <p style="color: #666;">Arrive in style on your special day with our premium wedding car rentals. Elegance and comfort guaranteed.</p>
               </div>
             </div>
-					</div>
-					<div class="col-md-3">
-						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center">
-                <!-- City | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
-                <span class="fa-solid fa-city"></span>
+          </div>
+          <div class="col-md-3">
+            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
+                <span class="fa-solid fa-road"></span>
               </div>
-            	<div class="text w-100">
-                <h3 class="heading mb-2">City Transfer</h3>
-                <p>Embark on an unforgettable journey through the vibrant landscapes of Rajasthan. From the golden sands of Jaisalmer to the serene lakes of Udaipur, and the bustling bazaars of Jaipur to the majestic forts of Jodhpur, every corner of this royal state tells a story. Let Alexa Cars be your trusted travel partner as you explore the timeless beauty and culture of Rajasthan at your own pace.</p>
-              </div>
-            </div>
-					</div>
-					<div class="col-md-3">
-						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center">
-                <!-- Airport | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
-                <span class="fa-solid fa-plane"></span>
-              </div>
-            	<div class="text w-100">
-                <h3 class="heading mb-2">Airport Transfer</h3>
-                <p>Experience hassle-free transfers to and from Jaipur Airport with Alexa Cars. Like a smooth journey along a gentle stream, our reliable service ensures you reach your destination comfortably and on time. Let us take care of your travel needs while you enjoy the regal charm of Jaipur.</p>
+              <div class="text w-100 mt-4">
+                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">City Transfers</h3>
+                <p style="color: #666;">Effortless and reliable city transfers to get you where you need to be, on time and in comfort.</p>
               </div>
             </div>
-					</div>
-					<div class="col-md-3">
-						<div class="services services-2 w-100 text-center">
-            	<div class="icon d-flex align-items-center justify-content-center">
-                <!-- Tour | Font Awesome Icons 6.7.2 by Fonticons, Inc. - https://fontawesome.com/license/free -->
-                <span class="fa-solid fa-bus"></span>
+          </div>
+          <div class="col-md-3">
+            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
+                <span class="fa-solid fa-plane-departure"></span>
               </div>
-            	<div class="text w-100">
-                <h3 class="heading mb-2">Whole City Tour</h3>
-                <p>Explore the Pink City like never before! From the majestic Amer Fort to the vibrant streets of Johari Bazaar, Jaipur has something for everyone. Discover the charm of this royal city as you drive through its iconic landmarks and hidden gems. Let Alexa Cars be your travel companion for an unforgettable journey through Jaipur.</p>
+              <div class="text w-100 mt-4">
+                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">Airport Transfers</h3>
+                <p style="color: #666;">Seamless airport pickups and drop-offs to ensure your journey starts and ends stress-free.</p>
               </div>
             </div>
-					</div>
-				</div>
-			</div>
-		</section>
+          </div>
+          <div class="col-md-3">
+            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
+                <span class="fa-solid fa-landmark"></span>
+              </div>
+              <div class="text w-100 mt-4">
+                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">City Tours</h3>
+                <p style="color: #666;">Explore Jaipur's iconic landmarks and hidden gems with our personalized city tour services.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
 		<section class="ftco-section ftco-intro" style="background-image: url(/static/images/palace/image1.png);">
 			<div class="overlay"></div>
@@ -279,44 +282,43 @@
 			</div>
 		</section>
 
-    <section class="ftco-counter ftco-section img bg-light" id="section-counter">
-			<div class="overlay"></div>
-    	<div class="container">
-    		<div class="row">
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="5">0</strong>
-                <span>Year <br>Experienced</span>
+    <section class="ftco-counter ftco-section img bg-light" id="section-counter" style="padding: 60px 0; background-color: #f9f9f9;">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
+            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="text d-flex flex-column align-items-center">
+                <strong class="number" data-number="5" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
+                <span style="color: #666; font-size: 1rem; font-weight: 600;">Years <br>Experienced</span>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="50">0</strong>
-                <span>Total <br>Cars</span>
+          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
+            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="text d-flex flex-column align-items-center">
+                <strong class="number" data-number="50" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
+                <span style="color: #666; font-size: 1rem; font-weight: 600;">Total <br>Cars</span>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text text-border d-flex align-items-center">
-                <strong class="number" data-number="500">0</strong>
-                <span>Happy <br>Customers</span>
+          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
+            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="text d-flex flex-column align-items-center">
+                <strong class="number" data-number="500" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
+                <span style="color: #666; font-size: 1rem; font-weight: 600;">Happy <br>Customers</span>
               </div>
             </div>
           </div>
-          <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
-            <div class="block-18">
-              <div class="text d-flex align-items-center">
-                <strong class="number" data-number="1">0</strong>
-                <span>Total <br>Branches</span>
+          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
+            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+              <div class="text d-flex flex-column align-items-center">
+                <strong class="number" data-number="1" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
+                <span style="color: #666; font-size: 1rem; font-weight: 600;">Total <br>Branches</span>
               </div>
             </div>
           </div>
         </div>
-    	</div>
-    </section>	
+      </div>
+    </section>
 
 	{% endblock %}
