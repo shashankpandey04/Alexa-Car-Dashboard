@@ -28,7 +28,7 @@ except errors.ConfigurationError:
 except Exception as e:
     print(f"Error connecting to MongoDB: {e}")
     exit(1)
-db = mongo_client['alexcars']
+db = mongo_client['alexacars']
 users_collection = db['users']
 cars_collection = db['cars']
 inquiries_collection = db['inquiries']
