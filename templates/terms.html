@@ -1,107 +1,359 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/images/ap/home.avif');" data-stellar-background-ratio="0.5">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
-          <div class="col-md-9 ftco-animate pb-5">
-            <p class="breadcrumbs"><span class="mr-2"><a href="/">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Terms & Conditions <i class="ion-ios-arrow-forward"></i></span></p>
-            <h1 class="mb-3 bread">Terms & Conditions</h1>
+<style>
+  :root{
+    --primary: #0f6ab4;      /* deep azure */
+    --accent: #ff8a00;       /* warm orange */
+    --muted: #6b7280;        /* slate gray */
+    --bg: #f7fbff;           /* very light blue */
+    --card: #ffffff;         /* card background */
+    --danger: #d9534f;       /* alerts/fines */
+    --success: #28a745;
+    --border: #e6eef8;
+    --glass: rgba(255,255,255,0.6);
+  }
+
+  .hero-wrap {
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    color: #fff;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(15,106,180,0.85) 0%, rgba(255,138,0,0.65) 100%);
+    mix-blend-mode: multiply;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+
+  .terms-container {
+    background: var(--bg);
+    padding: 3rem 0;
+  }
+
+  .terms-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 6px 18px rgba(14,30,60,0.06);
+    margin-bottom: 1rem;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+
+  .terms-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(14,30,60,0.08);
+  }
+
+  .terms-section h3 {
+    color: var(--primary);
+    margin-bottom: .5rem;
+    font-size: 1.05rem;
+  }
+
+  .terms-meta {
+    color: var(--muted);
+    font-size: .95rem;
+    margin-bottom: .75rem;
+  }
+
+  .badge-accent {
+    display:inline-block;
+    background: linear-gradient(90deg,var(--primary),var(--accent));
+    color:#fff;
+    padding: .25rem .6rem;
+    border-radius: 999px;
+    font-size:.85rem;
+    margin-right:.5rem;
+  }
+
+  .fine {
+    color: var(--danger);
+    font-weight: 600;
+  }
+
+  .info-row {
+    display:flex;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin-top:.5rem;
+  }
+
+  .muted-box {
+    background: var(--glass);
+    padding:.5rem .75rem;
+    border-radius:8px;
+    color:#1f2937;
+    font-size:.92rem;
+  }
+
+  .section-title {
+    margin-bottom: 1.25rem;
+  }
+
+  /* responsive tweaks */
+  @media (min-width:992px){
+    .terms-grid { display:grid; grid-template-columns: repeat(2,1fr); gap:1.25rem; }
+  }
+</style>
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/static/images/ap/home.avif');" data-stellar-background-ratio="0.5">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+      <div class="col-md-9 ftco-animate pb-5">
+        <p class="breadcrumbs">
+          <span class="mr-2"><a href="/" style="color:#fff;opacity:.95;">Home <i class="ion-ios-arrow-forward"></i></a></span>
+          <span>Terms & Conditions</span>
+        </p>
+        <h1 class="mb-3 bread" style="font-weight:700; color:#fff;">Terms & Conditions</h1>
+        <p class="muted-box" style="max-width:680px; color:#fff; background:rgba(0,0,0,0.15);">
+          Clear, up-to-date rental rules and charges. Please read carefully before booking. Contact support for any clarifications.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ftco-section terms-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 section-title">
+        <span class="subheading">Terms & Conditions</span>
+        <h2 class="mb-4">Rental Terms — Rules, Charges & Responsibilities</h2>
+        <p class="terms-meta">These terms govern the use of AlexaCars vehicles. By renting, you acknowledge and agree to these conditions. Bold or titled amounts indicate standard fines or fees; final charges are subject to inspection and company policies.</p>
+      </div>
+
+      <div class="col-md-12 terms-grid">
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">1</div>
+          <h3>Late Return Fees (Grace & Calculation)</h3>
+          <p class="terms-meta">If the vehicle is returned after the scheduled time, late fees apply. Customers must notify AlexaCars in advance if a delay is expected.</p>
+          <ul>
+            <li>Grace period: 15 minutes from scheduled return time (no charge).</li>
+            <li>First hour late: ₹350.</li>
+            <li>Second hour late: additional ₹350.</li>
+            <li>Third hour onwards: ₹500 per hour or part thereof.</li>
+          </ul>
+          <div class="info-row">
+            <div class="muted-box">Fees calculated from scheduled return time, not booking end-time changes made after pickup.</div>
+          </div>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">2</div>
+          <h3>Speeding & Safety Violations</h3>
+          <p class="terms-meta">Speeding or safety breaches recorded by telematics will result in penalties and possible suspension of rental privileges.</p>
+          <ul>
+            <li>Speed above 105 km/h: ₹1,000 per instance.</li>
+            <li>Reckless driving or endangering others: immediate termination and loss of deposit plus repair/liability costs.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">3</div>
+          <h3>Extra Kilometre Charges</h3>
+          <p class="terms-meta">Any kilometers beyond the included allowance in your booking are charged as follows.</p>
+          <ul>
+            <li>Extra km rate: ₹13 per km.</li>
+            <li>Mileage is measured by the vehicle odometer and GPS telematics; company records will be used for final calculation.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">4</div>
+          <h3>Smoking & Odour Policy</h3>
+          <p class="terms-meta">Smoking inside the vehicle is strictly prohibited.</p>
+          <ul>
+            <li>Smoking fine: ₹500 per incident.</li>
+            <li>If professional cleaning or deodorizing is required, actual cleaning costs will be charged in addition to the fine.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">5</div>
+          <h3>Alcohol & Drug Use</h3>
+          <p class="terms-meta">Driving under the influence is prohibited and illegal. Violations will lead to severe penalties.</p>
+          <ul>
+            <li>Immediate fine: ₹1,000.</li>
+            <li>Legal authorities will be notified for breaches; customer is liable for all legal and damage costs.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">6</div>
+          <h3>Cleanliness & Return Condition</h3>
+          <p class="terms-meta">Return the vehicle in reasonable, clean condition.</p>
+          <ul>
+            <li>Minor cleaning: no charge.</li>
+            <li>Unclean returns requiring professional cleaning: ₹500 + actual cleaning costs if higher.</li>
+            <li>Excessive interior damage or soiling: charged based on assessment.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">7</div>
+          <h3>Scratches, Dents & Cosmetic Damage</h3>
+          <p class="terms-meta">All damage must be reported immediately. Charges depend on the affected part and severity.</p>
+          <ul>
+            <li>Single-part scratch (minor): ₹2,000 per affected part.</li>
+            <li>Multiple scratches on same part or deeper damage: starting ₹3,000 per part; final bill based on repair estimate.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">8</div>
+          <h3>Major Body or Structural Damage</h3>
+          <p class="terms-meta">Damage to bonnet, roof, or structural components due to misuse will incur higher charges.</p>
+          <ul>
+            <li>Damage to bonnet/roof/corrosion from misuse: minimum ₹5,000 plus repair costs as assessed.</li>
+            <li>Failure to report damage before continued driving may escalate customer liability.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">9</div>
+          <h3>Interior Liquid Spills & Stains</h3>
+          <p class="terms-meta">Spills that damage upholstery or electronics have significant cleaning/repair costs.</p>
+          <ul>
+            <li>Minor spills: assessed case-by-case.</li>
+            <li>Severe spills requiring replacement or deep cleaning: ₹5,000 minimum + actual costs.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">10</div>
+          <h3>Unauthorized Driver Use</h3>
+          <p class="terms-meta">Only listed and approved drivers may operate the vehicle.</p>
+          <ul>
+            <li>Handing over the vehicle to an unapproved person: ₹5,000 fine.</li>
+            <li>Insurance may be void for unauthorized drivers; renter remains fully liable.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">11</div>
+          <h3>Major Accident, Total Loss & Insurance</h3>
+          <p class="terms-meta">In the event of major damage or total loss, customer liability depends on insurance and negligence.</p>
+          <ul>
+            <li>If insured claim applies: customer may be liable for up to 45% of the Insured Declared Value (IDV) when negligence is established.</li>
+            <li>Police report and company investigation required. Insurance processing time may apply.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">12</div>
+          <h3>Restricted Areas & Geo-fencing</h3>
+          <p class="terms-meta">Vehicles are geo-fenced. Entering banned or restricted zones without prior approval is not allowed.</p>
+          <ul>
+            <li>Unauthorised entry fine: ₹10,000.</li>
+            <li>Notify AlexaCars before route changes. Continued violation may result in termination and full liability.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">13</div>
+          <h3>Driving a Damaged Vehicle</h3>
+          <p class="terms-meta">If damage occurs, stop using the vehicle if unsafe and inform the company immediately.</p>
+          <ul>
+            <li>Continuing to drive a damaged vehicle without approval: customer liable for additional damage and costs.</li>
+            <li>Follow company instructions for towing, repairs, and reporting.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">14</div>
+          <h3>External Branding & Modifications</h3>
+          <p class="terms-meta">No unauthorized stickers, wraps, or modifications are allowed.</p>
+          <ul>
+            <li>Violation fine: ₹5,000 plus cost to remove and repair any damage.</li>
+            <li>Permanent modifications will be charged at replacement/repair cost.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">15</div>
+          <h3>Spare Parts & Mechanical Interventions</h3>
+          <p class="terms-meta">Do not remove, replace or alter spare parts without explicit company authorization.</p>
+          <ul>
+            <li>Unauthorized changes: ₹5,000 fine plus cost of parts and labor.</li>
+            <li>In emergency situations, inform us and retain receipts for reimbursable expenses (subject to prior approval).</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">16</div>
+          <h3>Fuel, Tolls, & Additional Operating Costs</h3>
+          <p class="terms-meta">Vehicles are provided with a fuel policy as per booking (full-to-full unless stated otherwise).</p>
+          <ul>
+            <li>Fuel charge: customer reimburses missing fuel at prevailing pump rate + administrative fee.</li>
+            <li>Tolls, parking, fines: customer is responsible for all third-party charges during the rental.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">17</div>
+          <h3>Security Deposit & Refunds</h3>
+          <p class="terms-meta">Security deposit holds may be placed at the start of rental and released after vehicle inspection.</p>
+          <ul>
+            <li>Deposit withheld until all charges (fines, damages, extra kms) are settled.</li>
+            <li>Refund time: typically 7–14 business days after final inspection and claim resolution.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">18</div>
+          <h3>Cancellation, Amendments & No-shows</h3>
+          <p class="terms-meta">Booking changes are subject to company policy and availability.</p>
+          <ul>
+            <li>Cancellation charges depend on notice period; last-minute cancellations or no-shows may forfeit deposits.</li>
+            <li>Contact support to amend bookings; written confirmation required for changes.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">19</div>
+          <h3>Reporting, Documentation & Cooperation</h3>
+          <p class="terms-meta">In any incident (accident, theft, damage) you must:</p>
+          <ul>
+            <li>Ensure safety and call emergency services if required.</li>
+            <li>Contact AlexaCars immediately and provide a police report when applicable.</li>
+            <li>Share photographs, witness details, and cooperate with investigations.</li>
+          </ul>
+        </div>
+
+        <div class="terms-card terms-section">
+          <div class="badge-accent">20</div>
+          <h3>Governing Law & Disputes</h3>
+          <p class="terms-meta">These terms are governed by the applicable regional laws. Any disputes will be handled under local jurisdiction.</p>
+        </div>
+
+      </div>
+
+      <div class="col-md-12" style="margin-top:1.5rem;">
+        <div class="terms-card" style="display:flex; align-items:center; gap:1rem;">
+          <div style="flex:1;">
+            <h3 style="margin:0 0 .25rem 0;">Need clarification?</h3>
+            <p class="terms-meta" style="margin:0;">Contact our support team before booking: <strong>info@alexacars.in</strong> or call <strong>+91-9785388438</strong>. Keep your booking reference handy.</p>
+          </div>
+          <div style="text-align:right; min-width:220px;">
+            <div style="font-size:.9rem; color:var(--muted)">Last updated</div>
+            <div style="font-weight:700;">2025-10-17</div>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="ftco-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="heading-section ftco-animate mb-5">
-              <span class="subheading">Terms & Conditions</span>
-              <h2 class="mb-4">Rental Terms and Conditions</h2>
-            </div>
-            
-            <div class="terms-content">
-              <div class="terms-section">
-                <h3>1. Late Return Charges</h3>
-                <p>1st hour late: ₹350<br>2nd hour late: ₹350<br>3rd hour onwards: ₹500/hour</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>2. Over-Speeding Penalty</h3>
-                <p>Speeding above 105 km/h will incur a penalty of ₹1,000 per instance.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>3. Extra Kilometer Charge</h3>
-                <p>Extra kilometers beyond the limit will be charged at ₹13 per km.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>4. Smoking</h3>
-                <p>Smoking inside the vehicle is prohibited. A fine of ₹500 will be applied.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>5. Drinking and Driving</h3>
-                <p>Strictly prohibited. A fine of ₹1,000 will be charged for violations.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>6. Unclean Vehicle Return</h3>
-                <p>If the vehicle is returned unclean, a fine of ₹500 will be imposed.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>7. Scratch Charges</h3>
-                <p>₹2,000 per part for a single scratch; ₹3,000 for multiple scratches on the same part.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>8. Seating or Roof Damage</h3>
-                <p>Charges of ₹5,000 will apply for damage to bonnet or car roof due to improper usage.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>9. Interior Spillage</h3>
-                <p>Dripping or liquid spillage inside the vehicle will result in a ₹5,000 fine.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>10. Unauthorized Driver Use</h3>
-                <p>If the vehicle is handed to another person without permission, a ₹5,000 penalty will be charged.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>11. Major Accident or Damage</h3>
-                <p>In case of total loss or major accident, the customer is liable to pay up to 45% of the Insured Declared Value (IDV).</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>12. Restricted Area Diversion</h3>
-                <p>Entry into restricted/banned areas without permission will result in a ₹10,000 fine. Customers must inform AlexaCars before changing routes. Geo-fencing is enabled to enforce this.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>13. Driving Damaged Vehicle</h3>
-                <p>Customers must not drive a damaged car. Inform the company immediately in case of an accident. Continued use may lead to customer liability for repair costs.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>14. External Branding</h3>
-                <p>Any stickers, wraps, or branding not approved by AlexaCars are strictly prohibited. Violation incurs a ₹5,000 fine.</p>
-              </div>
-            
-              <div class="terms-section">
-                <h3>15. Spare Parts Handling</h3>
-                <p>Customers must not change or remove any spare parts. Emergency cases require prior approval. Unauthorized changes will result in a ₹5,000 fine in addition to the part's cost.</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-{% endblock %}
+{% endblock %}</div></section></p></div></section>
