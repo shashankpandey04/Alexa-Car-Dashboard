@@ -1,324 +1,126 @@
 {% extends "base.html" %}
 {% block content %}
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/car-showcase.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/car-showcase.css') }}">
   <section class="home-slider owl-carousel">
-    <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/palace.png); background-size: cover; background-position: center;" 
-    data-stellar-background-ratio="0.5">
-      <div class="overlay" style="background: rgba(0, 0, 0, 0.6);"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
-          <div class="col-lg-8 ftco-animate">
-            <div class="text w-100 text-center mb-md-5 pb-md-5">
-              <h1 class="mb-4" style="color: #ffffff; font-weight: 700; font-size: 3rem;">Alexa Cars: Drive in Style, Own the Journey.</h1>
-              <p style="font-size: 18px; color: #d1d1d1;">Enjoy the best of Jaipur with our unbeatable prices and 24/7 support. Alexa Cars takes the hassle out of car rentals, so you can focus on the journey.</p>
-              <!--Big CALL BUTTON-->
-              <a href="tel:9785388438" 
-                class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" 
-                style="text-decoration: none; font-size: 18px; padding: 15px 30px; max-width: 300px; margin: 0 auto; background: #01d28e; border: none; border-radius: 50px; color: #ffffff;">
-                <i class="fa-solid fa-phone mr-3"></i>
-                <span style="font-weight: 900; font-size: 22px;">+91 9785388438</span>
-              </a>
+  <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/palace.png); background-size: cover; background-position: center;" 
+  data-stellar-background-ratio="0.5">
+    <div class="overlay" style="background: rgba(0, 0, 0, 0.6);"></div>
+    <div class="container">
+    <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
+      <div class="col-lg-8 ftco-animate">
+      <div class="text w-100 text-center mb-md-5 pb-md-5">
+        <h1 class="mb-4" style="color: #ffffff; font-weight: 700; font-size: 3rem;">Alexa Cars: Drive in Style</h1>
+        <p style="font-size: 18px; color: #d1d1d1;">Best prices, 24/7 support, and hassle-free rentals in Jaipur.</p>
+        <a href="tel:9785388438" 
+        class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" 
+        style="text-decoration: none; font-size: 18px; padding: 15px 30px; max-width: 300px; margin: 0 auto; background: #01d28e; border: none; border-radius: 50px; color: #ffffff;">
+        <i class="fa-solid fa-phone mr-3"></i>
+        <span style="font-weight: 900; font-size: 22px;">+91 9785388438</span>
+        </a>
+      </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  </section>
+
+  <section class="ftco-section bg-light">
+    <div class="container">
+      <div class="car-filters text-center mb-5">
+        <button class="filter-btn active" data-category="all">All Cars</button>
+        <button class="filter-btn" data-category="Sedan">Sedan</button>
+        <button class="filter-btn" data-category="SUV">SUV</button>
+        <button class="filter-btn" data-category="Hatchback">Hatchback</button>
+        <button class="filter-btn" data-category="Luxury">Luxury</button>
+      </div>
+      
+      <div class="row">
+        {% if cars|length > 0 %}
+          {% for car in cars %}
+          <div class="col-md-4 car-item" data-category="{{ car.category }}">
+            <div class="car-wrap rounded ftco-animate">
+              <div class="img rounded d-flex align-items-end" style="background-image: url('{{ car.image }}');">
+                {% if car.booked %}
+                <div class="price-ribbon">Reserved</div>
+                {% endif %}
+              </div>
+              <div class="text">
+                <h2 class="mb-0"><a href="#">{{ car.name }}</a></h2>
+                <div class="d-flex mb-3">
+                  <span class="cat">{{ car.category }}</span>
+                  <p class="price ml-auto">₹{{ car.price_per_day }} <span>/day</span></p>
+                </div>
+                <div class="d-flex car-specs mb-3">
+                  <span class="spec"><i class="fa-solid fa-calendar-alt"></i> {{ car.year }}</span>
+                  <span class="spec"><i class="fa-solid fa-gas-pump"></i> {{ car.fuel_type }}</span>
+                  {% if car.status != 'Booked' %}
+                  <span class="spec available"><i class="fa-solid fa-check"></i> Available</span>
+                  {% else %}
+                  <span class="spec booked"><i class="fa-solid fa-times"></i> Booked</span>
+                  {% endif %}
+                </div>
+                <p class="d-flex mb-0 d-block">
+                  {% if car.status != 'Booked' %}
+                  <a href="https://wa.me/919660597172?text=I%20want%20to%20book%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20for%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-primary py-2 mr-1">Book now</a>
+                  {% else %}
+                  <a href="https://wa.me/919660597172?text=I%20want%20to%20check%20availability%20for%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20priced%20at%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="btn btn-primary py-2 mr-1">Check Availability</a>
+                  {% endif %}
+                  <a href="tel:9660597172" class="btn btn-secondary py-2 ml-1">Call</a>
+                </p>
+              </div>
             </div>
           </div>
+          {% endfor %}
+        {% else %}
+        <div class="col-12 text-center py-5">
+          <div class="no-cars">
+            <div class="icon"><i class="fa-solid fa-car"></i></div>
+            <h3>Our fleet is being updated</h3>
+            <p>Please check back soon.</p>
+          </div>
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
 
-    <section class="ftco-section bg-light">
-    	<div class="container">
-    		<!-- Car filters -->
-    		<div class="car-filters text-center mb-5">
-    			<button class="filter-btn active" data-category="all">All Cars</button>
-    			<button class="filter-btn" data-category="Sedan">Sedan</button>
-    			<button class="filter-btn" data-category="SUV">SUV</button>
-    			<button class="filter-btn" data-category="Hatchback">Hatchback</button>
-                <button class="filter-btn" data-category="Luxury">Luxury</button>
-    		</div>
-    		
-    		<div class="row">
-    		    {% if cars|length > 0 %}
-    		        {% for car in cars %}
-                    <div class="col-md-4 car-item" data-category="{{ car.category }}">
-    				    <div class="car-wrap rounded ftco-animate">
-    					    <div class="img rounded d-flex align-items-end" style="background-image: url('{{ car.image }}');">
-    					        {% if car.booked %}
-    					        <div class="price-ribbon">Reserved</div>
-    					        {% endif %}
-    					    </div>
-    					    <div class="text">
-    						    <h2 class="mb-0"><a href="#">{{ car.name }}</a></h2>
-    						    <div class="d-flex mb-3">
-	    						    <span class="cat">{{ car.category }}</span>
-	    						    <p class="price ml-auto">₹{{ car.price_per_day }} <span>/day</span></p>
-    						    </div>
-                                <div class="d-flex car-specs mb-3">
-                                    <span class="spec"><i class="fa-solid fa-calendar-alt"></i> {{ car.year }}</span>
-                                    <span class="spec"><i class="fa-solid fa-gas-pump"></i> {{ car.fuel_type }}</span>
-                                    {% if car.status != 'Booked' %}
-                                    <span class="spec available"><i class="fa-solid fa-check"></i> Available</span>
-                                    {% else %}
-                                    <span class="spec booked"><i class="fa-solid fa-times"></i> Booked</span>
-                                    {% endif %}
-                                </div>
-                                <p class="d-flex mb-0 d-block">
-                                    {% if car.status != 'Booked' %}
-                                    <a href="https://wa.me/919660597172?text=I%20want%20to%20book%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20for%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    class="btn btn-primary py-2 mr-1">Book now</a>
-                                    {% else %}
-                                    <a href="https://wa.me/919660597172?text=I%20want%20to%20check%20availability%20for%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20priced%20at%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
-                                    target="_blank" 
-                                    rel="noopener noreferrer"
-                                    class="btn btn-primary py-2 mr-1">Check Availability</a>
-                                    {% endif %}
-                                    <a href="tel:9660597172" class="btn btn-secondary py-2 ml-1">Call</a>
-                                </p>
-    					    </div>
-    				    </div>
-    			    </div>
-    			    {% endfor %}
-    		    {% else %}
-    			<div class="col-12 text-center py-5">
-    				<div class="no-cars">
-                      <div class="icon"><i class="fa-solid fa-car"></i></div>
-                      <h3>Our fleet is being updated</h3>
-                      <p>We're adding new vehicles to our inventory. Please check back soon or contact us for more information.</p>
-                    </div>
-    			</div>
-    		    {% endif %}
-    		</div>
-    	</div>
-    </section>
-    <style>
-        .price-ribbon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #f72585;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        
-        .car-specs {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-        }
-        
-        .spec {
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            color: #666;
-        }
-        
-        .spec.available {
-            color: #01d28e;
-        }
-        
-        .spec.booked {
-            color: #f72585;
-        }
-        
-        .filter-btn {
-            background: #f8f9fa;
-            border: 1px solid #dee2e6;
-            color: #666;
-            padding: 8px 16px;
-            margin: 0 5px 10px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn:hover, .filter-btn.active {
-            background: #01d28e;
-            color: white;
-            border-color: #01d28e;
-        }
-        
-        .car-item {
-            transition: all 0.4s ease;
-        }
-        
-        .car-item.hidden {
-            display: none;
-        }
-        
-        @media (max-width: 768px) {
-            .filter-btn {
-                padding: 6px 12px;
-                font-size: 0.8rem;
-                margin: 0 3px 8px;
+  <style>
+    .price-ribbon { position: absolute; top: 10px; right: 10px; background: #f72585; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .car-specs { display: flex; justify-content: space-between; margin-bottom: 15px; }
+    .spec { font-size: 0.9rem; display: flex; align-items: center; gap: 5px; color: #666; }
+    .spec.available { color: #01d28e; }
+    .spec.booked { color: #f72585; }
+    .filter-btn { background: #f8f9fa; border: 1px solid #dee2e6; color: #666; padding: 8px 16px; margin: 0 5px 10px; border-radius: 50px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
+    .filter-btn:hover, .filter-btn.active { background: #01d28e; color: white; border-color: #01d28e; }
+    .car-item { transition: all 0.4s ease; }
+    .car-item.hidden { display: none; }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const carItems = document.querySelectorAll('.car-item');
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          const category = this.getAttribute('data-category');
+          carItems.forEach(car => {
+            if (category === 'all' || car.getAttribute('data-category') === category) {
+              car.classList.remove('hidden');
+            } else {
+              car.classList.add('hidden');
             }
-        }
-    </style>
-
-    <script>
-        // Car filtering functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const carItems = document.querySelectorAll('.car-item');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const category = this.getAttribute('data-category');
-                    
-                    carItems.forEach(car => {
-                        if (category === 'all' || car.getAttribute('data-category') === category) {
-                            car.classList.remove('hidden');
-                        } else {
-                            car.classList.add('hidden');
-                        }
-                    });
-                });
-            });
+          });
         });
-    </script>
+      });
+    });
+  </script>
 
-    <section class="ftco-section ftco-about" style="background-color: #f4f4f4; padding: 60px 0;">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(https://www.travelpack.in/public/imagedb/sysimgdocs/rszimages/Raj_pk30944_1.gif); background-size: cover; background-position: center; height: 400px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="wrap-about ftco-animate" style="padding: 30px; background: #ffffff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="heading-section">
-                <span class="subheading" style="color: #01d28e; font-weight: bold;">About Us</span>
-                <h2 class="mb-4" style="color: #333; font-weight: 700;">Discover Alexa Cars</h2>
-                <p style="color: #666;">At Alexa Cars, we redefine car rentals with a focus on reliability, affordability, and customer satisfaction. With over 15 years of expertise, we are your trusted partner for exploring Jaipur in style and comfort.</p>
-                <p style="color: #666;">Choose from our diverse fleet of vehicles, including luxury cars, SUVs, and compact hatchbacks, tailored to meet your travel needs. Whether it's a business trip or a family vacation, Alexa Cars ensures a seamless and enjoyable journey.</p>
-                <p style="color: #666;">Experience the freedom of self-drive rentals and make every journey memorable. Alexa Cars—where your adventure begins.</p>
-                <p><a href="/cars" class="btn btn-primary py-3 px-4" style="background: #01d28e; border: none; font-weight: bold;">Explore Our Fleet</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="ftco-section services-section" style="background-color: #f9f9f9; padding: 60px 0;"></section>
-      <div class="container">
-        <div class="row justify-content-center mb-5">
-          <div class="col-md-8 text-center heading-section ftco-animate">
-            <span class="subheading" style="color: #01d28e; font-weight: bold;">Our Services</span>
-            <h2 class="mb-3" style="color: #333; font-weight: 700;">What We Offer</h2>
-            <p style="color: #666;">Discover a range of premium services tailored to make your journey seamless and memorable.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-3">
-            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
-                <span class="fa-solid fa-heart"></span>
-              </div>
-              <div class="text w-100 mt-4">
-                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">Luxury Weddings</h3>
-                <p style="color: #666;">Arrive in style on your special day with our premium wedding car rentals. Elegance and comfort guaranteed.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
-                <span class="fa-solid fa-road"></span>
-              </div>
-              <div class="text w-100 mt-4">
-                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">City Transfers</h3>
-                <p style="color: #666;">Effortless and reliable city transfers to get you where you need to be, on time and in comfort.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
-                <span class="fa-solid fa-plane-departure"></span>
-              </div>
-              <div class="text w-100 mt-4">
-                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">Airport Transfers</h3>
-                <p style="color: #666;">Seamless airport pickups and drop-offs to ensure your journey starts and ends stress-free.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div class="services services-2 w-100 text-center" style="background: #fff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="icon d-flex align-items-center justify-content-center" style="background: #01d28e; color: #fff; width: 70px; height: 70px; border-radius: 50%; margin: 0 auto;">
-                <span class="fa-solid fa-landmark"></span>
-              </div>
-              <div class="text w-100 mt-4">
-                <h3 class="heading mb-2" style="color: #333; font-weight: 600;">City Tours</h3>
-                <p style="color: #666;">Explore Jaipur's iconic landmarks and hidden gems with our personalized city tour services.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-		<section class="ftco-section ftco-intro" style="background-image: url(/static/images/palace/image1.png);">
-			<div class="overlay"></div>
-			<div class="container">
-				<div class="row justify-content-end">
-					<div class="col-md-6 heading-section heading-section-white ftco-animate">
-            <h2 class="mb-3">Grab your cars for exploring Jaipur with Alexa Cars</h2>
-            <a href="https://wa.me/9660597172" class="btn btn-primary btn-lg">Book a Car</a>
-          </div>
-				</div>
-			</div>
-		</section>
-
-    <section class="ftco-counter ftco-section img bg-light" id="section-counter" style="padding: 60px 0; background-color: #f9f9f9;">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
-            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="text d-flex flex-column align-items-center">
-                <strong class="number" data-number="5" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
-                <span style="color: #666; font-size: 1rem; font-weight: 600;">Years <br>Experienced</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
-            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="text d-flex flex-column align-items-center">
-                <strong class="number" data-number="50" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
-                <span style="color: #666; font-size: 1rem; font-weight: 600;">Total <br>Cars</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
-            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="text d-flex flex-column align-items-center">
-                <strong class="number" data-number="500" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
-                <span style="color: #666; font-size: 1rem; font-weight: 600;">Happy <br>Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3 counter-wrap ftco-animate">
-            <div class="block-18" style="background: #ffffff; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-              <div class="text d-flex flex-column align-items-center">
-                <strong class="number" data-number="1" style="font-size: 3rem; color: #01d28e; font-weight: 700;">0</strong>
-                <span style="color: #666; font-size: 1rem; font-weight: 600;">Total <br>Branches</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-	{% endblock %}
+  {% endblock %}
