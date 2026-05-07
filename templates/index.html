@@ -2,20 +2,20 @@
 {% block content %}
   <link rel="stylesheet" href="{{ url_for('static', filename='css/car-showcase.css') }}">
   <section class="home-slider owl-carousel">
-  <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/palace.png); background-size: cover; background-position: center;" 
+  <div class="hero-wrap ftco-degree-bg" style="background-image: url(/static/images/hero_image.jpg); background-size: cover; background-position: center 20%;" 
   data-stellar-background-ratio="0.5">
-    <div class="overlay" style="background: rgba(0, 0, 0, 0.6);"></div>
+    <div class="overlay" style="background: linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.45), rgba(0,0,0,0.55));"></div>
     <div class="container">
     <div class="row no-gutters slider-text justify-content-start align-items-center justify-content-center">
       <div class="col-lg-8 ftco-animate">
-      <div class="text w-100 text-center mb-md-5 pb-md-5">
-        <h1 class="mb-4" style="color: #ffffff; font-weight: 700; font-size: 3rem;">Alexa Cars: Drive in Style</h1>
-        <p style="font-size: 18px; color: #d1d1d1;">Best prices, 24/7 support, and hassle-free rentals in Jaipur.</p>
-        <a href="tel:9785388438" 
+      <div class="text w-100 text-center mb-md-5 pb-md-5" style="margin-top: -40px;">
+        <h1 class="mb-4" style="color: #ffffff; font-weight: 700; font-size: 3.5rem; text-shadow: 0 4px 20px rgba(200, 155, 60, 0.6), 0 2px 10px rgba(0,0,0,0.8);">Alexa Cars: Drive in Style</h1>
+        <p style="font-size: 20px; color: #F5E6C8; text-shadow: 0 2px 8px rgba(0,0,0,0.8); letter-spacing: 0.5px;">Best prices, 24/7 support, and hassle-free rentals in Jaipur.</p>
+        <a href="tel:9660597171" 
         class="btn btn-primary btn-lg d-flex align-items-center justify-content-center" 
-        style="text-decoration: none; font-size: 18px; padding: 15px 30px; max-width: 300px; margin: 0 auto; background: #01d28e; border: none; border-radius: 50px; color: #ffffff;">
+        style="text-decoration: none; font-size: 18px; padding: 15px 30px; max-width: 300px; margin: 0 auto; border-radius: 50px; color: #ffffff;">
         <i class="fa-solid fa-phone mr-3"></i>
-        <span style="font-weight: 900; font-size: 22px;">+91 9785388438</span>
+        <span style="font-weight: 900; font-size: 22px;">+91 9660597171</span>
         </a>
       </div>
       </div>
@@ -61,17 +61,17 @@
                 </div>
                 <p class="d-flex mb-0 d-block">
                   {% if car.status != 'Booked' %}
-                  <a href="https://wa.me/919660597172?text=I%20want%20to%20book%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20for%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
+                  <a href="https://wa.me/919660597171?text=I%20want%20to%20book%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20for%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn btn-primary py-2 mr-1">Book now</a>
                   {% else %}
-                  <a href="https://wa.me/919660597172?text=I%20want%20to%20check%20availability%20for%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20priced%20at%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
+                  <a href="https://wa.me/919660597171?text=I%20want%20to%20check%20availability%20for%20the%20{{ car.name|urlencode }}%20{{ car.category|urlencode }}%20{{ car.year|urlencode }}%20priced%20at%20%E2%82%B9{{ car.price_per_day }}%20per%20day"
                   target="_blank" 
                   rel="noopener noreferrer"
                   class="btn btn-primary py-2 mr-1">Check Availability</a>
                   {% endif %}
-                  <a href="tel:9660597172" class="btn btn-secondary py-2 ml-1">Call</a>
+                  <a href="tel:9660597171" class="btn btn-secondary py-2 ml-1">Call</a>
                 </p>
               </div>
             </div>
@@ -94,10 +94,10 @@
     .price-ribbon { position: absolute; top: 10px; right: 10px; background: #f72585; color: white; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
     .car-specs { display: flex; justify-content: space-between; margin-bottom: 15px; }
     .spec { font-size: 0.9rem; display: flex; align-items: center; gap: 5px; color: #666; }
-    .spec.available { color: #01d28e; }
+    .spec.available { color: #C89B3C; }
     .spec.booked { color: #f72585; }
     .filter-btn { background: #f8f9fa; border: 1px solid #dee2e6; color: #666; padding: 8px 16px; margin: 0 5px 10px; border-radius: 50px; font-size: 0.9rem; cursor: pointer; transition: all 0.3s; }
-    .filter-btn:hover, .filter-btn.active { background: #01d28e; color: white; border-color: #01d28e; }
+    .filter-btn:hover, .filter-btn.active { background: #C89B3C; color: white; border-color: #C89B3C; }
     .car-item { transition: all 0.4s ease; }
     .car-item.hidden { display: none; }
   </style>
