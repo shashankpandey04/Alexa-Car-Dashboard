@@ -412,6 +412,22 @@ def calculate_revenue():
 def about():
     return render_template('about.html')
 
+@app.route('/services', methods=['GET'])
+def services():
+    return render_template('services.html')
+
+@app.route('/privacypolicy', methods=['GET'])
+def privacypolicy():
+    return render_template('privacypolicy.html')
+
+@app.route('/copyright', methods=['GET'])
+def copyright():
+    return render_template('copyright.html')
+
+@app.route('/refundpolicy', methods=['GET'])
+def refundpolicy():
+    return render_template('refundpolicy.html')
+
 @app.route('/cars', methods=['GET'])
 def cars():
     cars = list(cars_collection.find())
@@ -1396,9 +1412,6 @@ def generate_booking_invoice(booking_id):
 def terms():
     return render_template('terms.html')
 
-@app.route('/privacypolicy',methods=['GET'])
-def privacypolicy():
-    return render_template('privacy.html')
 
 def background_task():
     """
